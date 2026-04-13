@@ -12,6 +12,12 @@ import { STAGE_LABELS } from '@/lib/types';
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#06b6d4', '#f43f5e', '#84cc16'];
 const data = getData();
 
+export function generateStaticParams() {
+  return data.branches.map((branch) => ({
+    id: branch.id,
+  }));
+}
+
 export default function BranchPage() {
   const params = useParams();
   const branchId = params.id as string;

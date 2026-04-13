@@ -16,6 +16,12 @@ const STATUS_COLORS: Record<string, string> = {
 };
 const data = getData();
 
+export function generateStaticParams() {
+  return data.sales_reps.map((rep) => ({
+    id: rep.id,
+  }));
+}
+
 export default function RepPage() {
   const params = useParams();
   const repId = params.id as string;
